@@ -1,7 +1,7 @@
 package com.intouch.Inventory.controller;
 
 import com.intouch.Inventory.dto.AssetTransactionDto;
-import com.intouch.Inventory.service.AssetTransactionService;
+import com.intouch.Inventory.services.AssetTransactionService;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
