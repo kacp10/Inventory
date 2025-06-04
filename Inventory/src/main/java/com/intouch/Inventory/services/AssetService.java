@@ -51,13 +51,15 @@ public class AssetService {
     public AssetDto create(AssetDto dto) {
         AssetType type = typeRepo.findById(dto.getTypeId())
                 .orElseThrow(() -> new ResourceNotFoundException("AssetType", "id", dto.getTypeId()));
-        Asset a = MapperUtil.toAsset(dto);
+
+        // <-- CAMBIO AQUÍ: llamar a toAssetEntity en lugar de toAsset
+        Asset a = MapperUtil.toAssetEntity(dto);
         a.setType(type);
 
         // Guarda la entidad
         Asset saved = repo.save(a);
 
-        // Retorna el DTO correctamente (no como referencia)
+        // Retorna el DTO correctamente
         return MapperUtil.toAssetDto(saved);
     }
 
